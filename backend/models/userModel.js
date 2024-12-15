@@ -5,16 +5,17 @@ const userSchema = mongoose.Schema(
   {
     name: {
       type: String,
-      required: true,
+      required: [true, "Name is required"],
     },
     email: {
       type: String,
-      required: true,
+      required: [true, "Email is required"],
       unique: true,
     },
     password: {
       type: String,
-      required: true,
+      required: [true, "Password is required"],
+      minlength: [5, "Password must be at least 5 characters"],
     },
   },
   { timestamps: true }
@@ -28,6 +29,10 @@ userSchema.pre("save", async function (next) {
   this.password = await bcrypt.hash(this.password, salt);
   next();
 });
+
+userSchema.methods.matchPassword = async function (enterPassword) {
+  return bcrypt.compare(enterPassword, this.password);
+};
 
 const User = mongoose.model("User", userSchema);
 export default User;

@@ -1,0 +1,14 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.brdr {
+  border: 2px solid red;
+}
+
+.box {
+  border-radius: 8px; /* Optional: Adds rounded corners */
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2); /* Optional: Adds a shadow */
+}
+
+

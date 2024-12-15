@@ -3,19 +3,34 @@ const taskSchema = mongoose.Schema(
   {
     title: {
       type: String,
+      trim: true,
+      required: [true, "Title is required"],
+    },
+    userId: {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: "User",
       required: true,
     },
     startTime: {
       type: Date,
-      required: true,
+      required: [true, "startTime is required"],
     },
     endTime: {
       type: Date,
-      required: true,
+      required: [true, "endTime is required"],
     },
     status: {
       type: String,
-      required: true,
+      enum: ["pending", "finished"],
+      default: "pending",
+    },
+    priority: {
+      type: Number,
+      required: [true, "Priority is required"],
+      enum: [1, 2, 3, 4, 5],
+    },
+    totalTimeToFinish: {
+      type: Number,
     },
   },
   { timestamps: true }
