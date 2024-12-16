@@ -9,15 +9,12 @@ import {
 
 import { useFilterSortQuery } from "../slices/taskSlice";
 import { toast } from "react-toastify";
-import { useDispatch } from "react-redux";
 
 function TaskList() {
-  console.log("compoent render...");
-
   let [priority, setPriority] = useState("");
   let [pendingStatus, setPendingStatus] = useState("");
   let [sortFilter, setSortFilter] = useState("");
-  let { data: userData, isLoading: ll, isFetching } = useGetUserTaskQuery();
+  let { data: userData, isLoading: ll } = useGetUserTaskQuery();
 
   const { data: filteredData, isLoading: isFilterLoading } = useFilterSortQuery(
     {

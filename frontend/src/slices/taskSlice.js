@@ -9,7 +9,7 @@ export const userApiSlice = apiSlice.injectEndpoints({
         method: "POST",
         body: data,
       }),
-      providesTags: ["Tasks"],
+      invalidatesTags: ["Tasks"],
     }),
     updateTask: builder.mutation({
       query: (data) => ({

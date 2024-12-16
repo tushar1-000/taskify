@@ -1,6 +1,5 @@
-import React from "react";
-import { Link, NavLink, Outlet } from "react-router-dom";
-import Summary from "../components/Summary";
+import {  NavLink, Outlet } from "react-router-dom";
+
 
 function Dashboard() {
 
