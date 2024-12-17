@@ -38,7 +38,7 @@ export const userApiSlice = apiSlice.injectEndpoints({
         const queryString = new URLSearchParams(params).toString();
         return `${TASKS_URL}/tasks/filter?${queryString}`;
       },
-      invalidatesTags: ["Tasks"],
+      providesTags: ["Tasks"],
     }),
   }),
 });

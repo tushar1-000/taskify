@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useMemo } from "react";
 import TaskTable from "./TaskTable";
 import Modal from "./Modal";
 
@@ -23,6 +23,7 @@ function TaskList() {
       status: pendingStatus,
     }
   );
+
 
   useEffect(() => {}, []);
 
@@ -132,7 +133,7 @@ function TaskList() {
         {!ll && (
           <TaskTable
             openModal={openModal}
-            tasks={userData.tasks}
+            tasks={filteredData}
             isOpen={isModalOpen}
             closeModal={closeModal}
             deleteHandler={deleteHandler}
